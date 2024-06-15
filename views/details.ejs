@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="main w-full min-h-screen bg-zinc-900 p-10">
+      <a href="/" class="text-blue-500 inline-block mb-10"
+        ><- Go back to Home</a
+      >
+      <div class="con flex justify-between bg-zinc-800 items-center px-2">
+        <h1 class="text-white py-3"><%=filename%></h1>
+        <a href="/edit/<%=filename%>" class="text-blue-500"
+          ><i class="ri-edit-line"></i
+        ></a>
+      </div>
+      <p class="text-white bg-zinc-800 mt-3 py-3 px-2" style="height: 20vh">
+        <%=details%>
+      </p>
+      <a
+        href="/delete/<%=filename%>"
+        style="margin-left: 90vw"
+        class="dlt px-3 py-1 text-black bg-red-500 inline-block mt-4 mb-* rounded-md"
+        ><i class="ri-delete-bin-6-fill"></i
+      ></a>
+    </div>
+    <script>
+      const dlt = document.querySelector(".dlt");
+      dlt.addEventListener("click", () => {
+        if (confirm("Are you sure you want to delete...")) {
+          window.location.href = "/delete/<%=filename%>";
+        }
+      });
+    </script>
+  </body>
+</html>
