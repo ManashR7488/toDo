@@ -12,7 +12,8 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-  fs.readdir(`./files`, function (err, files) {
+  const filesPath = path.join(__dirname, 'files');
+  fs.readdir(filesPath, function (err, files) {
     res.render("index", { files: files });
   });
 });
